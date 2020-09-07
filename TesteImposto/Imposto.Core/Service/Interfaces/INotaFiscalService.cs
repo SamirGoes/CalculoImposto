@@ -8,6 +8,6 @@ namespace Imposto.Core.Service
 {
     public interface INotaFiscalService
     {
-        void GerarNotaFiscal(Domain.Pedido pedido);
+        bool GerarNotaFiscal(Domain.Pedido pedido);
     }
 }

@@ -1,4 +1,6 @@
-﻿using Imposto.Core.Service;
+﻿using Imposto.Core.Repositorios;
+using Imposto.Core.Service;
+using Imposto.Infra.Dados.Repositorios;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using System;
@@ -17,7 +19,11 @@ namespace Imposto.Infra.CrossCutting.IoC
             _container = new Container();
 
             _container.Register<INotaFiscalService, NotaFiscalService>();
-
+            _container.Register<ICfopService, CfopService>();
+            _container.Register<IIpiService, IpiService>();
+            _container.Register<IIcmsService, IcmsService>();
+            _container.Register<INotaFiscalRepositorio, NotaFiscalRepositorio>();
+            
             _container.Verify();
         }
 

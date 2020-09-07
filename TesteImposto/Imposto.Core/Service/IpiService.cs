@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Imposto.Core.Service
 {
-    public class IpiService
+    public class IpiService : IIpiService
     {
         public Ipi CalcularIpi(PedidoItem itemPedido)
         {
             Ipi _ipi = null;
             decimal baseDeCalculo = itemPedido.ValorItemPedido;
-            decimal aliquota = 10;
+            decimal aliquota = 0.1M;
 
             if (itemPedido.Brinde)
                 aliquota = 0;

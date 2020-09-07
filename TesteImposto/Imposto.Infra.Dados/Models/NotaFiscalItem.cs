@@ -17,5 +17,7 @@ namespace Imposto.Infra.Dados.Models
         public double ValorIcms { get; set; }
         public string NomeProduto { get; set; }
         public string CodigoProduto { get; set; }
+        public decimal BaseIpi { get; set; }
+        public decimal ValorIpi { get; set; }
     }
 }

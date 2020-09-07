@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Imposto.Core.Service
 {
-    public class IcmsService
+    public class IcmsService : IIcmsService
     {
         public Icms CalcularIcms(Pedido pedido, PedidoItem pedidoItem, Cfop cfop)
         {

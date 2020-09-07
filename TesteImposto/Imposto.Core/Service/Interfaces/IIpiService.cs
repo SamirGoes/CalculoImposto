@@ -1,14 +1,15 @@
 ﻿using Imposto.Core.Domain;
+using Imposto.Core.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Imposto.Core.Repositorios
+namespace Imposto.Core.Service
 {
-    public interface INotaFiscalRepositorio
+    public interface IIpiService
     {
-        void AdicionarNotaFiscal(NotaFiscal notaFiscal);
+        Ipi CalcularIpi(PedidoItem itemPedido);
     }
 }

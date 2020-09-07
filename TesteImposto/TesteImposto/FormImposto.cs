@@ -28,6 +28,9 @@ namespace TesteImposto
 
             cmbEstadoOrigem.Items.AddRange(ListaEstadosOrigem().ToArray());
             cmbEstadoDestino.Items.AddRange(ListaEstadosDestino().ToArray());
+
+            cmbEstadoDestino.SelectedIndex = 0;
+            cmbEstadoOrigem.SelectedIndex = 0;
         }
 
         private void ResizeColumns()
@@ -54,6 +57,12 @@ namespace TesteImposto
 
         private void buttonGerarNotaFiscal_Click(object sender, EventArgs e)
         {
+            if (cmbEstadoOrigem.SelectedIndex == 0 || cmbEstadoDestino.SelectedIndex == 0)
+            {
+                MessageBox.Show("Selecione corretamente os estados origem e destino.", "Erro");
+                return;
+            }
+
             var pedido = new Pedido(textBoxNomeCliente.Text, cmbEstadoOrigem.Text, cmbEstadoDestino.Text);
 
             if (!pedido.Valido)
@@ -66,27 +75,41 @@ namespace TesteImposto
 
             foreach (DataRow row in table.Rows)
             {
-                pedido.AdicionarItem(
-                    new PedidoItem(
-                        brinde: Convert.ToBoolean(row["Brinde"]),
+                var pedidoItem = new PedidoItem(
+                        brinde: !string.IsNullOrEmpty(row["Brinde"].ToString()),
                         codigoProduto: row["Codigo do produto"].ToString(),
                         nomeProduto: row["Nome do produto"].ToString(),
-                        valorItemPedido: Convert.ToDecimal(row["Valor"].ToString())
-                    ));
+                        valorItemPedido: string.IsNullOrEmpty(row["Valor"].ToString()) ? 0 : Convert.ToDecimal(row["Valor"].ToString())
+                    );
+
+                if (!pedidoItem.Valido)
+                {
+                    MessageBox.Show(string.Join("\n", pedidoItem.Erros), "Erro");
+                    return;
+                }
+                
+                pedido.AdicionarItem(pedidoItem);
             }
 
-            _notafiscalService.GerarNotaFiscal(pedido);
-            MessageBox.Show("Operação efetuada com sucesso");
+            bool notaFiscalCriada = _notafiscalService.GerarNotaFiscal(pedido);
+
+            if (notaFiscalCriada)
+            {
+                LimparTela();
+                MessageBox.Show("Operação efetuada com sucesso");
+            }
         }
 
         private IEnumerable<string> ListaEstadosOrigem()
         {
+            yield return ("Selecione");
             yield return ("MG");
             yield return ("SP");
         }
 
         private IEnumerable<string> ListaEstadosDestino()
         {
+            yield return ("Selecione");
             yield return ("MG");
             yield return ("PE");
             yield return ("PA");
@@ -97,6 +120,17 @@ namespace TesteImposto
             yield return ("RO");
             yield return ("SE");
             yield return ("TO");
+        }
+
+        private void LimparTela()
+        {
+            textBoxNomeCliente.Clear();
+
+            cmbEstadoOrigem.SelectedIndex = 0;
+            cmbEstadoDestino.SelectedIndex = 0;
+            
+            DataTable table = (DataTable)dataGridViewPedidos.DataSource;
+            table.Clear();
         }
     }
 }

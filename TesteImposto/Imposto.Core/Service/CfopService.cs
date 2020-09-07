@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Imposto.Core.Service
 {
-    public class CfopService
+    public class CfopService : ICfopService
     {
         private IFactory<Cfop> _cfopFactory;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Imposto.Core.ValueObjects
 {
-    public class Cfop
+    public struct Cfop
     {
         public Cfop(string valor)
         {

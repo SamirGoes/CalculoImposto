@@ -23,11 +23,6 @@ namespace Imposto.Core.Domain
 
         private IList<NotaFiscalItem> _itensDaNotaFiscal;
 
-        public NotaFiscal()
-        {
-            _itensDaNotaFiscal = new List<NotaFiscalItem>();
-        }
-
         public NotaFiscal(int numeroNotaFiscal, int serie, Nome nomeCliente, Estado estadoDestino, Estado estadoOrigem)
         {
             //Id = id;

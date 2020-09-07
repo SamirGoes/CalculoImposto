@@ -35,7 +35,7 @@ namespace Imposto.Core.ValueObjects
                 case "RO": Cfop = "6.006"; break;
                 case "SE": Cfop = "6.007"; break;
                 case "TO": Cfop = "6.008"; break;
-                //case "SE": return "6.009";
+                //case "SE": Cfop = "6.009"; break;
                 case "PA": Cfop = "6.010"; break;
                 default: Cfop = "0000"; break;
             }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imposto.Infra.Dados", "Impo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imposto.Infra.CrossCutting.IoC", "Imposto.Infra.CrossCutting.IoC\Imposto.Infra.CrossCutting.IoC.csproj", "{57BD7F47-DF5A-4241-86A6-251DCF282F43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteImposto.Testes", "TesteImposto.Testes\TesteImposto.Testes.csproj", "{F7FACD55-B5FA-43E4-AFDB-054D2096F9E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{57BD7F47-DF5A-4241-86A6-251DCF282F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57BD7F47-DF5A-4241-86A6-251DCF282F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57BD7F47-DF5A-4241-86A6-251DCF282F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7FACD55-B5FA-43E4-AFDB-054D2096F9E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7FACD55-B5FA-43E4-AFDB-054D2096F9E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7FACD55-B5FA-43E4-AFDB-054D2096F9E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7FACD55-B5FA-43E4-AFDB-054D2096F9E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -64,6 +64,10 @@
       <Project>{2339C0B3-1E95-4CD3-BFBA-64B377857016}</Project>
       <Name>Imposto.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Imposto.Infra.Dados\Imposto.Infra.Dados.csproj">
+      <Project>{FBE082AE-5766-4065-8A77-EFFD2AF23189}</Project>
+      <Name>Imposto.Infra.Dados</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
